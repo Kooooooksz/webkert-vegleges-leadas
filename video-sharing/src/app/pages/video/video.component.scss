@@ -1,0 +1,46 @@
+.video-uploader {
+    h2 {
+      margin-bottom: 10px;
+    }
+  
+    input[type="file"],
+    button {
+      margin-bottom: 10px;
+    }
+  
+    .video-container {
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap; // Fölösleges, de biztos ami biztos
+        gap: 10px; // Távolság a videók között
+      }
+  
+      li {
+        flex: 1 1 calc(33.33% - 10px); // Három oszlop minden sorban
+        margin-bottom: 10px;
+        max-width: calc(33.33% - 10px); // Maximális szélesség az egyes elemeknek
+  
+        video {
+          width: 100%; // A videó konténer teljes szélessége
+          height: auto; // Arányos méret
+          max-width: 200px; // Maximum szélesség
+          max-height: 150px; // Maximum magasság
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+  
+        p {
+          margin-top: 5px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  mat-select{
+    width: 25%;
+  }
+  

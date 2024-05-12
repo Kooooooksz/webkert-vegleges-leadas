@@ -1,0 +1,37 @@
+<div>
+  <form (ngSubmit)="register()">
+    <mat-form-field>
+      <mat-label for="username">Username:</mat-label>
+      <input matInput type="text" id="username" name="username" [(ngModel)]="user.username" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="email">Email:</mat-label>
+      <input matInput type="email" id="email" name="email" [(ngModel)]="user.email" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="password">Password:</mat-label>
+      <input matInput type="password" id="password" name="password" [(ngModel)]="password" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="phone">Phone Number:</mat-label>
+      <input matInput matinput matInput type="tel" id="phone" name="phone" [(ngModel)]="user.phone">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="firstname">First Name:</mat-label>
+      <input matInput type="text" id="firstname" name="firstname" [(ngModel)]="user.name.firstname">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="lastname">Last Name:</mat-label>
+      <input matInput type="text" id="lastname" name="lastname" [(ngModel)]="user.name.lastname">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="birthdate">Birth Date:</mat-label>
+      <input matInput type="date" id="birthdate" name="birthdate" [(ngModel)]="user.birth">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="address">Address:</mat-label>
+      <input matInput type="text" id="address" name="address" [(ngModel)]="user.address">
+    </mat-form-field>
+    <button mat-raised-button color="primary"  type="submit">Register</button>
+  </form>
+</div>

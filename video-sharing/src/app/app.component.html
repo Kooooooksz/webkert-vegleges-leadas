@@ -1,0 +1,38 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+        <app-navbar (onCloseSidenav)="onClose($event, sidenav)">
+
+        </app-navbar>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <div fxHide.gt-xs>
+                <button mat-icon-button (click)="onToggleSidenav(sidenav)">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            
+            <div>
+                Videómegosztás
+            </div>
+            <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+                <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+                    <li a routerLink="/register">Register</li>
+                    <li a routerLink="/video">Videos</li>
+                    <li *ngIf="(isLoggedIn | async); else notLoggedIn">
+                        <ng-container *ngIf="(username | async) as user">
+                          <span>{{ user }}</span> 
+                          <button (click)="logout()">Logout</button>
+                        </ng-container>
+                      </li>
+                      <ng-template #notLoggedIn>
+                        <li><a routerLink="/login">Login</a></li>
+                      </ng-template>
+                </ul>
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>  
+
+</mat-sidenav-container>

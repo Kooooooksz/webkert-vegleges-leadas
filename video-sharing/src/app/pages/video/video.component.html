@@ -1,0 +1,37 @@
+<div>
+  <form (ngSubmit)="uploadVideo()">
+    <div>
+      <label for="videoFile">Choose Video:</label>
+      <input type="file" id="videoFile" name="videoFile" (change)="handleFileInput($event)" accept="video/*" required>
+    </div>
+    <div>
+      <label for="videoName">Video Name:</label>
+      <input type="text" id="videoName" name="videoName" [(ngModel)]="videoName" required>
+    </div>
+    <button type="submit">Upload Video</button>
+  </form>
+</div>
+
+<div *ngIf="videoURL">
+  <p>Uploaded Video URL: {{ videoURL }}</p>
+</div>
+
+<div>
+  <h3>Filter by Uploader:</h3>
+  <mat-select (selectionChange)="reload()"  [(ngModel)]="selectedUploader">
+    <mat-option value="All">All</mat-option>
+    <mat-option *ngFor="let uploader of uploaders" [value]="uploader">{{ uploader }}</mat-option>
+  </mat-select>
+</div>
+
+<div>
+  <h3>Uploaded Videos:</h3>
+  <ul>
+    <li *ngFor="let video of filteredVideos | async | uploaderFilter:selectedUploader">
+      <video controls [src]="getVideoURL(video.url)" width="320" height="240"></video>
+      <p>Uploader: <a [routerLink]="['/channel', video.uploader]">{{ video.uploader }}</a></p>
+      <p>Date: {{ video.date }}</p>
+      <p>Name: {{ video.name }}</p>
+    </li>
+  </ul>
+</div>

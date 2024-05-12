@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ uploader }} videói</mat-card-title>
+    <mat-card-subtitle>Feliratkozók száma: {{ subscribers }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <ul>
+      <li *ngFor="let video of videos">
+        <p>{{ video.name }}</p>
+      </li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions *ngIf="uploader !== loggedInUsername">
+    <button mat-button color="primary" (click)="toggleSubscription()">
+      {{ isSubscribed ? 'Leiratkozás' : 'Feliratkozás' }}
+    </button>
+  </mat-card-actions>
+</mat-card>

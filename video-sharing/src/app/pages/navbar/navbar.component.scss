@@ -1,0 +1,40 @@
+div {
+  background-color: #333;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between; /* A menüpontokat a navbar két széle felé igazítja */
+  }
+
+  li {
+    margin-right: 20px;
+  }
+
+  span, a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #c82333;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center; /* A felhasználónév és a Logout gomb középre igazítása */
+  }
+}

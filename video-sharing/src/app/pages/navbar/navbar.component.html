@@ -1,0 +1,24 @@
+<mat-nav-list>
+  <mat-icon>login</mat-icon>
+  <a mat-list-item *ngIf="(isLoggedIn | async); else notLoggedIn" (click)="close()">
+    <ng-container *ngIf="(username | async) as user">
+      <span>{{ user }}</span> 
+      <button (click)="logout()">Logout</button>
+    </ng-container>
+  </a>
+  <ng-template #notLoggedIn>
+    
+    <li><a mat-list-item routerLink="/login" (click)="close()">Login</a></li>
+  </ng-template>
+  <a mat-list-item routerLink="/video" (click)="close()">
+    <mat-icon>video</mat-icon>
+    <span>Videos</span>
+  </a>
+  <a mat-list-item routerLink="/register" (click)="close()">
+    <mat-icon>register</mat-icon>
+    <span>Register</span>
+  </a>
+  
+</mat-nav-list>
+
+
